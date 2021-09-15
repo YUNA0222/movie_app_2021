@@ -1,14 +1,17 @@
 //import Potato from "./Potato";//상대경로
-function App() {
+function App() {//메인 컴포넌트
   return (
     <div>
       <h1>Hello React</h1>
-      <Potato/>
+      <Movie/>
+      <Movie/>
+      <Movie/>
+      <Movie/>
     </div>
   );
 }
 
-function Potato(){
+function Movie(){//서브 컴포넌트
   return (
       <h3>I love potato</h3>
   );
