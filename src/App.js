@@ -3,15 +3,13 @@ function App() {//메인 컴포넌트
   return (
     <div>
       <h1>Hello React</h1>
-      <Movie/>
-      <Movie/>
-      <Movie/>
-      <Movie/>
+      <Food fav = "kimchi" somthing={true} papapa = {'hello', 1, 2, true } />
     </div>
   );
 }
 
-function Movie(){//서브 컴포넌트
+function Food(props){//서브 컴포넌트
+  console.log(props);
   return (
       <h3>I love potato</h3>
   );
