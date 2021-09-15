@@ -1,3 +1,5 @@
+import { render } from "@testing-library/react";
+
 const foodILike = [
   {
     name: 'chikin',
@@ -9,12 +11,16 @@ const foodILike = [
   }
 ]
 
+function renderFood(foo){
+  return <Food name={foo.name} picture={foo.image} />
+}
+
 //import Potato from "./Potato";//상대경로
 function App() {//메인 컴포넌트
   return (
     <div>
       {
-        foodILike.map(foo => (<Food name={foo.name} picture={foo.image} />))
+        foodILike.map(renderFood)
       }
     </div>
   );
