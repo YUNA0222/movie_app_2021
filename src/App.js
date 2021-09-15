@@ -3,15 +3,18 @@ function App() {//메인 컴포넌트
   return (
     <div>
       <h1>Hello React</h1>
-      <Food fav = "kimchi" somthing={true} papapa = {'hello', 1, 2, true } />
+      <Food fav = "kimchi"/>
+      <Food fav = "a"/>
+      <Food fav = "b"/>
+      <Food fav = "c"/>
     </div>
   );
 }
 
-function Food(props){//서브 컴포넌트
-  console.log(props);
+function Food({fav}){//서브 컴포넌트
+  // {fav} = props
   return (
-      <h3>I love potato</h3>
+      <h3>I love {fav}</h3>
   );
 }
 
