@@ -1,20 +1,32 @@
+const foodILike = [
+  {
+    name: 'chikin',
+    image: 'https://img.insight.co.kr/static/2020/01/06/700/u193cc75jr3p97lg645z.jpg'
+  },
+  {
+    name: 'gukbap',
+    image: 'https://cdn.mindgil.com/news/photo/202008/69679_4073_1653.jpg'
+  }
+]
+
 //import Potato from "./Potato";//상대경로
 function App() {//메인 컴포넌트
   return (
     <div>
-      <h1>Hello React</h1>
-      <Food fav = "kimchi"/>
-      <Food fav = "a"/>
-      <Food fav = "b"/>
-      <Food fav = "c"/>
+      {
+        foodILike.map(foo => (<Food name={foo.name} picture={foo.image} />))
+      }
     </div>
   );
 }
 
-function Food({fav}){//서브 컴포넌트
+function Food({name, picture}){//서브 컴포넌트
   // {fav} = props
   return (
-      <h3>I love {fav}</h3>
+    <div>
+      <h2>I love {name}</h2>
+      <img src = {picture}/>
+    </div>
   );
 }
 
