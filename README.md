@@ -6,6 +6,27 @@
 - 구조 분해 할당: 데이터의 개수가 많을 때 편리
 - map함수: 배열 안에 있는 데이터들에게 일괄적으로 이벤트를 부여함
 
+map(): 배열의 모든 원소에 특정작업을 적용할 때 사용
+    - 배열에 있는 것을 하나씩 뽑아서 적용
+    - ex) friends.map((current) => {
+             console.log(current); //console창에 friends의 배열 출력
+              return 0; //이건 의미 x [0, 0, 0, 0]
+});
+
+{foodILike.map(dish => (<Food name = {dish.name}/>)) }
+    - <Food fav="">의 업그레이드 버전
+    - dish의 이름은 상관 없음
+    - Food는 함수
+    - FoodILike의 배열의 개수만큼 실행함
+    - FoodILike에서 원소를 하나 뽑아 dish에 담아서 name에 전달
+
+무명함수: 함수의 이름없이 쓰는 함수, 1번 사용
+    - ex) function(friends){
+        return friends + "❤"
+    }
+
+<img>: html태그, 싱글태그, src안에 주소를 담아서 사용, 사진 출력
+
 
 
 [ 09월 08일 ]
