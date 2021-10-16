@@ -1,29 +1,73 @@
 # 201930318 이윤아
 ## [ 10월 13일 ]
-
+ ### 1. 영화 앱 스타일링하기 - .ss파일 없이 스타일 적용하기
+① 우선 보기 좋게 ```<div>```를 이용해서 JSX를 감싼다.
+```javascript 
+    <section className= 'container'> //리액트에서는 class가 아닌 className 사용
+        {isLoading? (
+          <div className= 'loader'>
+            <span className='loader-class'>Loading...</span>
+          </div>
+    (생략)
+```
+② 엘리먼트에 style 속성 추가
+```javascript 
+    <h3 class="movie__title" style={{ backgroundColor: 'red' }}>
+    {title}
+    </h3>
+```
+ ### 2. 영화 앱 스타일링하기 - css파일을 이용해서 스타일 적용
+① css파일 생성  
+② 컴포넌트에 css파일 임포트
+```javascript 
+    import './App.css'
+```
+③ css파일 수정
+```css 
+   body{
+       background-color: #2f2f2f;
+   }
+```
+#### 07장: 영화 앱 다듬기
+ ### prop-types로 배열 검사하기
+ ```js 
+    Movie.propTypes = { // 대소문자 주의!
+        genres : PropTypes.arrayOf(PropTypes.string).isRequired
+    }
+```
+ ### 컴포넌트에서 배열 props 출력하기
+배열이므로 map()이용
+ ```js 
+    <ul className='movie-genres'>
+        {genres.map((tuna)=>{
+            return <li className='movie-genre'>{tuna}</li>    
+            }
+        )}
+    </ul>
+```
 
 ## [ 10월 06일 ]
 ### 마운트로 분류하는 생명주기 함수
-> 1:  constructor( ) // 생성자 함수  
-> 2: render( )  
-> 3: componentDidMount( )
+1. constructor( ) // 생성자 함수  
+2. render( )  
+3. componentDidMount( )
 ### 업데이트로 분류한 생명주기 함수
-> componentDidUpdate( ) // 화면이 업데이트되면 실행
+- componentDidUpdate( ) // 화면이 업데이트되면 실행
 ### 컴포넌트가 죽을 때 실행되는 함수
-> componentWillUnmount( ) // 컴포넌트가 화면에서 떠날 때 실행
+- componentWillUnmount( ) // 컴포넌트가 화면에서 떠날 때 실행
 
 <br>
 
-#### 6장
+#### 06장: 영화 앱 만들기 
 ### axios: 영화 데이터를 로딩하기 위해 사용
 
 ### JSON Viewer:  줄바꿈이 없는 json파일을 보기 쉽게 해주는 확장 도구
 
 ### async, await
-- 네트워크와 연결해서 데이터의 개수를 많이 받아오면 시간이 많이 걸릴 수 밖에 없기 때문에 getMovie()함수에 시간이 많이 걸린다는 것을 자바스크립트에게 알리기 위해 async와 await를 사용한다.
-- await는 실제 시간이 필요한 대상에다가 붙임
+1. 네트워크와 연결해서 데이터의 개수를 많이 받아오면 시간이 많이 걸릴 수 밖에 없기 때문에 getMovie()함수에 시간이 많이 걸린다는 것을 자바스크립트에게 알리기 위해 async와 await를 사용한다.
+2. await는 실제 시간이 필요한 대상에다가 붙임
 
-```js
+```javascript
 getMovies = async () => {  //자바 스크립트에게 getMovies()는 시간이 필요하다는 것을 알림
     const movies = await axios.get('https://yts-proxy.now.sh/list_movies.json');  // axios.get는 시간이 필요하다고 알림
   }
@@ -60,7 +104,7 @@ const {data: { data: {movies}}}
 ```js
     this.setState({count: this.state.count + 1});
 ```
-```js
+```javascript
     this.setState(current => ({
     	count: current.count+1,
     }))
@@ -89,11 +133,11 @@ friends.map((current) => {
 ```
 
 ### {foodILike.map(dish => (<Food name = {dish.name}/>)) }
-> - ```<Food fav="">```의 업그레이드 버전   
-> - dish의 이름은 상관 없음   
-> - Food는 함수   
-> - FoodILike의 배열의 개수만큼 실행함   
-> - FoodILike에서 원소를 하나 뽑아 dish에 담아서 name에 전달   
+- ```<Food fav="">```의 업그레이드 버전   
+- dish의 이름은 상관 없음   
+- Food는 함수   
+- FoodILike의 배열의 개수만큼 실행함   
+- FoodILike에서 원소를 하나 뽑아 dish에 담아서 name에 전달   
 
 ### 무명함수: 함수의 이름없이 쓰는 함수, 1번 사용
 ```js
