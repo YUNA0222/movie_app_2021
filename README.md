@@ -1,6 +1,6 @@
 # 201930318 이윤아
 ## [ 10월 13일 ]
- ### 1. 영화 앱 스타일링하기 - .ss파일 없이 스타일 적용하기
+ ### 1. 영화 앱 스타일링하기 - css파일 없이 스타일 적용하기
 ① 우선 보기 좋게 ```<div>```를 이용해서 JSX를 감싼다.
 ```javascript 
     <section className= 'container'> //리액트에서는 class가 아닌 className 사용
@@ -29,7 +29,7 @@
    }
 ```
 #### 07장: 영화 앱 다듬기
- ### prop-types로 배열 검사하기
+ ### prop-types로 배열 props 검사하기
  ```js 
     Movie.propTypes = { // 대소문자 주의!
         genres : PropTypes.arrayOf(PropTypes.string).isRequired
@@ -97,10 +97,10 @@ const {data: { data: {movies}}}
 > props검사: 정의되지 않은 props를 사용하면 경고해줌
 
 ### state: 동적데이터(변경 될 수 있는 데이터)를 다룰 때 사용
-	>state를 상용하려면 반드시 클래스형 컴포넌트 안에서, 소문자를 이용해서 사용
-	>{this.state.count}의 this.state는 현재 클래스에서 선언한 state를 의미
-	>state는 사용자가 직접 변경 허용x
-	>간접적으로 변경하려면 setState() 사용해야 함
+- state를 상용하려면 반드시 클래스형 컴포넌트 안에서, 소문자를 이용해서 사용
+- {this.state.count}의 this.state는 현재 클래스에서 선언한 state를 의미
+- state는 사용자가 직접 변경 허용x
+- 간접적으로 변경하려면 setState() 사용해야 함
 ```js
     this.setState({count: this.state.count + 1});
 ```
