@@ -1,4 +1,70 @@
 # 201930318 이윤아
+## [ 10월 27일 ]
+### react-router-dom: 화면 이동 시켜주는 장치
+1. react-router-dom 설치하기
+```javascript 
+    npm install react-router-dom
+```
+2. react-router-dom 임포트하기
+```javascript 
+    import {HashRouter, Route} from 'react-router-dom'
+```
+### About.js 수정하기
+```javascript 
+    import React from 'react';
+
+    function About() {
+    return (
+        <span>
+           hi
+        </span>
+        </div>
+  );
+}
+export default About
+```
+
+### a 엘리먼트 Link 컴포넌트로 바꾸기
+```javascript 
+    import { Link } from 'react-router-dom'
+
+    function Navigation() {
+    return (
+        <div>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+        </div>
+  );
+}
+export default Navigation
+```
+
+### push()함수 사용하기
+```javascript 
+    import React from 'react';
+
+class Detail extends React.Component {
+  componentDidMount() {
+    const { location, history } = this.props;
+    if (location.state === undefined) {
+      history.push('/');
+    }
+  }
+
+  render() {
+    const { location } = this.props;
+    if (location.state) {
+      return <span>{location.state.title}</span>;
+    } else {
+      return null;
+    }
+  }
+}
+
+export default Detail;
+```
+
+
 ## [ 10월 13일 ]
  ### 1. 영화 앱 스타일링하기 - css파일 없이 스타일 적용하기
 ① 우선 보기 좋게 ```<div>```를 이용해서 JSX를 감싼다.
