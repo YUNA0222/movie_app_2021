@@ -1,4 +1,74 @@
 # 201930318 이윤아
+## [ 11월 03일 ]
+### router props에 데이터 담아 보내기
+```javascript 
+   function Navigation(){
+    return(
+        <div className='nav'>
+            <Link to="/">Home</Link>
+            <Link to={{ pathname: './about', state: {fromNavigation: true}}}>About</Link>
+        </div>
+    );
+}
+```
+
+### Detaol.js 컴포넌트(클래스형) 만들기
+```javascript 
+   import React from "react";
+
+class Detail extends React.Component{
+    componentDidMount(){
+        const{ location, history} = this.props
+    }
+    
+    render(){
+        return(
+            <span>hello</span>
+        )
+    }
+}
+
+export default Detail
+```
+### Route 컴포넌트 추가하기
+```javascript 
+import Detail from './routes/Detail'
+
+   function App() {
+  return(
+    <HashRouter>
+      <Navigation />
+      <Route path="/" exact={true} component={Home} />
+      <Route path="/about" component={About} />
+      <Route path='/movie-detail' component={Detail} /> 
+    </HashRouter>
+  )
+}
+```
+
+### push()함수 사용하기
+```javascript 
+   import React from "react";
+
+class Detail extends React.Component{
+    componentDidMount(){
+        const{ location, history} = this.props
+        if(location.state === undefined){
+            history.push('/') //location.state가 없는 경우 Home으로 이동
+        }
+    }
+    
+    render(){
+        return(
+            <span>hello</span>
+        )
+    }
+}
+
+export default Detail
+```
+
+
 ## [ 10월 27일 ]
 ### react-router-dom: 화면 이동 시켜주는 장치
 1. react-router-dom 설치하기
