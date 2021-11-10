@@ -1,34 +1,20 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react"
+import './App.css'
+import {HashRouter, Route} from 'react-router-dom'
+import About from './routes/About'
+import Home from "./routes/Home"
+import Navigation from "./components/Navigation"
+import Detail from './routes/Detail'
 
-class App extends React.Component{
-  state={//영화 데이터
-    isLoadig: true,
-    movies: [],
-  };
-
-  getMovies = async () => {
-    const {
-      data:{
-        data: {movies}
-      }
-    } = await axios.get('https://yts-proxy.now.sh/list_movies.json?sort_by=rating');
-    this.setState({movies, isLoadig: false})
-  }
-
-  componentDidMount(){//영화 앱을 로딩하는 함수
-    //영화 데이터 로딩!
-    this.getMovies();
-  }
-
-  render(){
-    const { isLoadig } = this.state;
-    return(
-      <div>
-        {isLoadig? 'true' : 'false'}
-      </div>
-    )//false부분에 영화 데이터가 들어감
-  }
+function App() {
+  return(
+    <HashRouter>
+      <Navigation />
+      <Route path="/" exact={true} component={Home} />
+      <Route path="/about" component={About} />
+      <Route path='/movie-detail' component={Detail} />
+      </HashRouter>
+  )
 }
 
-export default App;//외부에서 사용 가능하게 해줌
+export default App
