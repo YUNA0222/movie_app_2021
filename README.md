@@ -24,7 +24,7 @@
     <div id="hello-example"></div> //id가 hello-example인 것을 출력
 </body>
 ```
-### Timer.html - 화면에 시간 출력( 화면 전체가 갱신되는 것이 아닌 바꿀 부분만 업데이트 됨 )
+### Timer.html - 화면에 시간 출력( 화면 전체가 갱신되는 것이 아니라, 일부분만 업데이트 됨 )
 ```javascript 
 <head>
    <script type="text/babel">
