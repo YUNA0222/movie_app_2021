@@ -1,4 +1,73 @@
 # 201930318 이윤아
+## { 11월 10일}
+### 리액트 공식 문서
+### index.html - 글씨 출력
+```javascript 
+<head>
+   <script type="text/babel">
+        class HelloMessage extends React.Component {
+            render() {
+                return (
+                    <div>
+                        Hello {this.props.name}
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <HelloMessage name="Taylor" />,
+            document.getElementById('hello-example')
+        )
+    </script>
+</head>
+<body>
+    <div id="hello-example"></div> //id가 hello-example인 것을 출력
+</body>
+```
+### Timer.html - 화면에 시간 출력( 화면 전체가 갱신되는 것이 아닌 바꿀 부분만 업데이트 됨 )
+```javascript 
+<head>
+   <script type="text/babel">
+        class Timer extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = { seconds: 0 }
+            }
+        
+            tick() {
+                this.setState(state => ({
+                seconds: state.seconds + 1
+                }))
+            }
+        
+            componentDidMount() {
+                this.interval = setInterval(() => this.tick(), 1000)
+            }
+        
+            componentWillUnmount() {
+                clearInterval(this.interval)
+            }
+        
+            render() {
+                return (
+                    <div>
+                        Seconds: {this.state.seconds}
+                    </div>
+                )
+            }
+        }
+    
+        ReactDOM.render(
+            <Timer />,
+            document.getElementById('timer-example')
+        )
+</head>
+<body>
+     <div id="timer-example"></div> //id가 timer-example인 것을 출력
+</body>
+```
+
+
 ## [ 11월 03일 ]
 ### router props에 데이터 담아 보내기
 ```javascript 
