@@ -1,47 +1,47 @@
 # 201930318 이윤아
-## { 11월 10일}
+## [ 11월 10일 ]
 ### 리액트 공식 문서
 ### index.html - 글씨 출력
 ```javascript 
 <head>
    <script type="text/babel">
-        class HelloMessage extends React.Component {
+        class HelloMessage extends React.Component { //클래스형 컴포넌트를 상속 받음
             render() {
                 return (
                     <div>
-                        Hello {this.props.name}
+                        Hello {this.props.name} //props 출력(?)
                     </div>
                 )
             }
         }
         ReactDOM.render(
             <HelloMessage name="Taylor" />,
-            document.getElementById('hello-example')
+            document.getElementById('hello-example') //id가 hello-example인 것을 Taylor라고 부름
         )
     </script>
 </head>
 <body>
-    <div id="hello-example"></div> //id가 hello-example인 것을 출력
+    <div id="hello-example"></div> 
 </body>
 ```
 ### Timer.html - 화면에 시간 출력( 화면 전체가 갱신되는 것이 아니라, 일부분만 업데이트 됨 )
 ```javascript 
 <head>
    <script type="text/babel">
-        class Timer extends React.Component {
-            constructor(props) {
-                super(props)
-                this.state = { seconds: 0 }
+        class Timer extends React.Component { //클래스형 컴포넌트를 상속 받음
+            constructor(props) { //생성자
+                super(props) //부모 
+                this.state = { seconds: 0 } //state인 second값 0으로 초기화
             }
         
             tick() {
                 this.setState(state => ({
-                seconds: state.seconds + 1
+                seconds: state.seconds + 1 //second값 1씩 증가
                 }))
             }
         
             componentDidMount() {
-                this.interval = setInterval(() => this.tick(), 1000)
+                this.interval = setInterval(() => this.tick(), 1000) //1초당
             }
         
             componentWillUnmount() {
@@ -51,7 +51,7 @@
             render() {
                 return (
                     <div>
-                        Seconds: {this.state.seconds}
+                        Seconds: {this.state.seconds} //지난 초 값 출력
                     </div>
                 )
             }
@@ -59,11 +59,11 @@
     
         ReactDOM.render(
             <Timer />,
-            document.getElementById('timer-example')
+            document.getElementById('timer-example') //id가 timer-example인 것
         )
 </head>
 <body>
-     <div id="timer-example"></div> //id가 timer-example인 것을 출력
+     <div id="timer-example"></div> 
 </body>
 ```
 
