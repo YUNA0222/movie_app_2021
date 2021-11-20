@@ -1,4 +1,19 @@
 # 201930318 이윤아
+## [ 11월 17일 ]
+### 리액트 공식 문서
+### index.html - 글씨 출력
+```javascript 
+<head>
+   <script type="text/babel">
+        );
+
+    </script>
+</head>
+<body>
+    <div id="hello-example"></div> 
+</body>
+```
+
 ## [ 11월 10일 ]
 ### 리액트 공식 문서
 ### index.html - 글씨 출력
