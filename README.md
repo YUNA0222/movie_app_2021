@@ -1,11 +1,119 @@
 # 201930318 이윤아
 ## [ 11월 17일 ]
 ### 리액트 공식 문서
-### index.html - 글씨 출력
+### (4) markdown-editor - 마크다운 변환
+```javascript 
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.md = new Remarkable();
+    this.handleChange = this.handleChange.bind(this);
+    this.state = { value: 'Hello, **world**!' };
+  }
+
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+  }
+
+  getRawMarkup() {
+    return { __html: this.md.render(this.state.value) };
+  }
+
+  render() {
+    return (
+      <div className="MarkdownEditor">
+        <h3>Input</h3>
+        <label htmlFor="markdown-content">
+          Enter some markdown
+        </label>
+        <textarea
+          id="markdown-content"
+          onChange={this.handleChange}
+          defaultValue={this.state.value}
+        />
+        <h3>Output</h3>
+        <div
+          className="content"
+          dangerouslySetInnerHTML={this.getRawMarkup()}
+        />
+      </div>
+    );
+  }
+}
+
+export default App
+```
+
+### (3) Todo.html - 리스트 추가
 ```javascript 
 <head>
    <script type="text/babel">
-        );
+       class TodoApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { items: [], text: '' };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>TODO</h3>
+        <TodoList items={this.state.items} />
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="new-todo">
+            What needs to be done?
+          </label>
+          <input
+            id="new-todo"
+            onChange={this.handleChange}
+            value={this.state.text}
+          />
+          <button>
+            Add #{this.state.items.length + 1}
+          </button>
+        </form>
+      </div>
+    );
+  }
+
+  handleChange(e) {
+    this.setState({ text: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    if (this.state.text.length === 0) {
+      return;
+    }
+    const newItem = {
+      text: this.state.text,
+      id: Date.now()
+    };
+    this.setState(state => ({
+      items: state.items.concat(newItem),
+      text: ''
+    }));
+  }
+}
+
+class TodoList extends React.Component {
+  render() {
+    return (
+      <ul>
+        {this.props.items.map(item => (
+          <li key={item.id}>{item.text}</li>
+        ))}
+      </ul>
+    );
+  }
+}
+
+ReactDOM.render(
+  <TodoApp />,
+  document.getElementById('todos-example')
+);
 
     </script>
 </head>
@@ -16,7 +124,7 @@
 
 ## [ 11월 10일 ]
 ### 리액트 공식 문서
-### index.html - 글씨 출력
+### (1) index.html - 글씨 출력
 ```javascript 
 <head>
    <script type="text/babel">
@@ -39,7 +147,7 @@
     <div id="hello-example"></div> 
 </body>
 ```
-### Timer.html - 화면에 시간 출력( 화면 전체가 갱신되는 것이 아니라, 일부분만 업데이트 됨 )
+###  (2) Timer.html - 화면에 시간 출력( 화면 전체가 갱신되는 것이 아니라, 일부분만 업데이트 됨 )
 ```javascript 
 <head>
    <script type="text/babel">
