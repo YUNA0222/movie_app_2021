@@ -1,4 +1,40 @@
 # 201930318 이윤아
+## [ 11월 24일 ]
+### 리액트 문서 - 설치
+#### 1단계: HTML 파일에 DOM 컨테이너 설치
+```javascript
+<div id="like_button_container"></div>
+```
+#### 2단계: 스크립트 태그 추가하기
+```javascript
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+```
+#### 3단계: React 컴포넌트 만들기
+```javascript
+const domContainer = document.querySelector('#like_button_container');
+ReactDOM.render(e(LikeButton), domContainer);
+```
+
+### CDN 링크
+#### 배포용 버전 - html
+```javascript
+<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+```
+#### CDN을 통해 React를 사용한다면, crossorigin 어트리뷰트(attribute)와 함께 사용
+```javascript
+<script crossorigin src="..."></script>
+```
+#### 
+```javascript
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+```
+## 주요 개념
+### 6. 이벤트 처리하기
+- React의 이벤트는 소문자 대신 캐멀 케이스를 사용한다.
+- JSX를 사용하여 문자열이 아닌 함수로 이벤트 핸들러를 전달한다.
+
 ## [ 11월 17일 ]
 ### 리액트 공식 문서
 ### (4) markdown-editor - 마크다운 변환
