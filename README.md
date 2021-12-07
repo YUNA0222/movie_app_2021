@@ -1,6 +1,68 @@
 # 201930318 이윤아
 ## [ 12월 01일 ]
+### Components와 Props
+#### 
+컴포넌트를 정의하는 가장 간단한 방법은 JavaScript 함수를 작성하는 것이다.
+```javascript
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+#### 컴포넌트 합성
+컴포넌트는 자신의 출력에 다른 컴포넌트를 참조할 수 있다.
+```javascript
+function App() {
+  return (
+    <div>
+      <Welcome name="Sara" />
+      <Welcome name="Cahal" />
+      <Welcome name="Edite" />
+    </div>
+  );
+}
+}
+```
+### State and Lifecycle
+#### 클래스에 로컬 State 추가하기
+1. render() 메서드 안에 있는 this.props.date를 this.state.date로 변경합니다.
+2. 초기 this.state를 지정하는 class constructor를 추가합니다.
+3. <Clock /> 요소에서 date prop을 삭제합니다.
+```javascript
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
 
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
+```
+
+#### 생명주기 메서드를 클래스에 추가하기
+애플리케이션에서 컴포넌트가 삭제될 때 해당 컴포넌트가 사용 중이던 리소스를 확보하는 것이 중요.
+Clock이 처음 DOM에 렌더링 될 때마다 타이머를 설정. 
+이것은 React에서 마운팅이라고 합니다.
+또한, Clock에 의해 생성된 DOM이 삭제될 때마다 타이머를 해제. 이것은 React에서 “언마운팅”이라고 합니다.
+componentDidMount() 메서드는 컴포넌트 출력물이 DOM에 렌더링 된 후에 실행됨. 타이머를 설정하기에 좋음.
+```javascript
+ tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+```
 
 ## [ 11월 24일 ]
 ### 리액트 문서 - 설치
