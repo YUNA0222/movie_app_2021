@@ -1,4 +1,39 @@
 # 201930318 이윤아
+## [ 12월 08일 ]
+### 조건부 렌더링
+1. 엘리먼트 변수
+- React에서는 렌더링 하려는 엘리먼트를 변수에 저장할 수 있다.
+2. 논리 연산자 &&로 if를 인라인으로 표현하기
+- JSX안에는 중괄호를 이용해서 JS표현식을 포함 할 수 있다.
+- 논리 연산자 &&를 사용하면 쉽게 엘리먼트를 조건부로 넣을 수 있다
+3. 조건부 연산자로 if-else 구문을 인라인으로 표현하기
+- 엘리먼트를 조건부로 렌더링하는 또 다른 방법은 조건부 연산자인 condition ? true:false를 사용하는 것
+- 독성이 다소 떨어지지만 큰 표션식을 넣을 수도 있다.
+4. 컴포넌트가 렌더링하는 것을 막기
+- 다른 컴포넌트에 의해 렌더링될 때 컴포넌트 자체를 숨기고 싶을 때가 있다.
+- 이때는 렌더링 결과를 출력하는 대신 null을 반환하면 해결할 수 있다
+
+### 상속
+React는 강력한 합성 모델을 갖고 있으며, 상속 대신 합성을 사용하여 컴포넌트 간에 코드를 재사용하는 것이 좋다
+```javascript
+function WelcomeDialog() {
+  return (
+    <FancyBorder color="blue">
+      <h1 className="Dialog-title">
+        Welcome
+      </h1>
+      <p className="Dialog-message">
+        Thank you for visiting our spacecraft!
+      </p>
+    </FancyBorder>
+  );
+}
+```
+###  특수화
+때로는 어떤 컴포넌트의 특수한 경우인 컴포넌트를 고려해야 하는 경우가 있다. 예를 들어, WelcomeDialog는 Dialog의 특수한 경우라고 할 수 있다.
+더 구체적인 컴포넌트가 일반적인 컴포넌트를 렌더링하고 props를 통해 내용을 구성한다.
+
+
 ## [ 12월 01일 ]
 ### Components와 Props
 #### 
